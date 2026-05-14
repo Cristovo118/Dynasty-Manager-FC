@@ -93,16 +93,13 @@
         .lc-lib { background: var(--tab-liberta); } .lc-pre { background: var(--tab-prelib); } .lc-sul { background: var(--tab-sula); } .lc-reb { background: var(--tab-rebaixamento); }
         .rules-box { background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--money-green); padding: 10px; font-size: 0.75em; margin-bottom: 10px; border-radius: 0 8px 8px 0;}
 
-        /* PRÉ-PARTIDA E JOGO - ALINHAMENTO CORRIGIDO DE VEZ */
+        /* PRÉ-PARTIDA E JOGO */
         .screen-pre-match { background: linear-gradient(180deg, var(--bg-pre-match-top) 0%, var(--bg-pre-match-bot) 100%); padding: 10px 15px; z-index: 20; }
         .pre-match-header { text-align: center; margin-bottom: 5px; flex-shrink: 0;}
         .pre-match-logo { font-family: 'Teko'; font-size: 1.6em; font-weight: bold; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;}
         .matchup-row { display: flex; justify-content: space-between; align-items: center; font-family: 'Teko'; font-size: 1.3em; margin-bottom: 5px;}
-        
         .matchup-team { display: flex; align-items: center; gap: 8px; width: 45%; }
-        /* flex-direction: row-reverse joga o escudo pra borda direita e aproxima o nome do X */
-        .matchup-team.right { justify-content: flex-end; text-align: right; flex-direction: row-reverse; }
-        
+        .matchup-team.right { justify-content: flex-end; text-align: right; }
         .matchup-vs { color: var(--cyan); font-weight: bold; width: 10%; text-align: center; }
         .match-info-text { font-size: 0.7em; color: rgba(255,255,255,0.7); text-align: center; margin-bottom: 10px; line-height: 1.2;}
         .tactical-board-container { display: flex; gap: 10px; flex: 1; min-height: 200px; margin-bottom: 10px; }
@@ -121,22 +118,7 @@
         
         .match-screen { background: radial-gradient(circle at top, #1e293b, #060912); position: relative; }
         
-        /* --- PLACAR ESTILO TV NO CANTO --- */
-        .tv-scoreboard {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
-            border-left: 4px solid var(--cyan);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            padding: 8px 15px;
-            gap: 15px;
-            font-family: 'Teko';
-            z-index: 10;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
+        .tv-scoreboard { position: absolute; top: 15px; left: 15px; background: linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.6)); border-left: 4px solid var(--cyan); border-radius: 4px; display: flex; align-items: center; padding: 8px 15px; gap: 15px; font-family: 'Teko'; z-index: 10; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .tv-comp-tag { position: absolute; top: -10px; left: 10px; background: var(--cyan); color: black; font-size: 0.65em; padding: 2px 8px; border-radius: 2px; font-weight: bold; letter-spacing: 1px; line-height: 1.2;}
         .tv-team { display: flex; align-items: center; gap: 8px; }
         .tv-shield { width: 28px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 0.55em; font-weight: bold; clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%); border: 1px solid rgba(255,255,255,0.2); }
@@ -173,16 +155,13 @@
         .fifa-calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: #1a2235; border: 1px solid #1a2235; flex: 1; border-radius: 6px; overflow: hidden;}
         .fifa-cal-header-row { display: contents; }
         .fifa-cal-day-name { text-align: center; color: var(--text-muted); font-size: 0.8em; padding: 4px 0; background: #070b15; margin-bottom: 2px;}
-        
         .fifa-cal-cell { background: #0b111e; position: relative; padding: 3px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
         .fifa-cal-cell.empty { background: transparent; border: none; }
         .fifa-cal-cell.today { border: 2px solid var(--cyan); z-index: 2; }
-        
         .fifa-cal-cell.comp-serieA { border-top: 3px solid #10b981 !important; background: linear-gradient(180deg, rgba(16, 185, 129, 0.15) 0%, #0b111e 50%); }
         .fifa-cal-cell.comp-carioca, .fifa-cal-cell.comp-estadual_mata { border-top: 3px solid #3b82f6 !important; background: linear-gradient(180deg, rgba(59, 130, 246, 0.15) 0%, #0b111e 50%); }
         .fifa-cal-cell.comp-liberta { border-top: 3px solid #fbbf24 !important; background: linear-gradient(180deg, rgba(251, 191, 36, 0.15) 0%, #0b111e 50%); }
         .fifa-cal-cell.comp-copa { border-top: 3px solid #ef4444 !important; background: linear-gradient(180deg, rgba(239, 68, 68, 0.15) 0%, #0b111e 50%); }
-        
         .fifa-cal-date { align-self: flex-start; font-size: 1.1em; color: white; line-height: 1; margin-bottom: 2px;}
         .fifa-cal-match-info { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: auto; margin-bottom: auto;}
         .fifa-cal-shield { width: 22px; height: 26px; font-size: 0.4em; font-weight: bold; display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%); margin-bottom: 2px; }
@@ -192,54 +171,30 @@
         .fifa-cal-score.loss { color: var(--money-red); }
         .fifa-cal-score.draw { color: var(--gold); }
         .fifa-cal-icon { font-size: 0.8em; color: #6b7280; margin-top: auto; margin-bottom: 2px; }
-        
         .cal-nav-btn { position: absolute; top: 10px; background: rgba(0,0,0,0.5); color: var(--cyan); border: 1px solid var(--cyan); border-radius: 6px; padding: 2px 10px; font-family: 'Teko'; cursor: pointer; z-index: 10; font-size: 1.2em; transition: 0.2s;}
         .cal-nav-btn:active { background: var(--cyan); color: #000; }
         .cal-nav-btn.prev { left: 10px; }
         .cal-nav-btn.next { right: 10px; }
-        
         .fifa-cal-legend { display: flex; justify-content: space-around; background: #0b111e; border: 1px solid #141b2d; padding: 8px; margin-top: 5px; border-radius: 12px; font-family: 'Teko'; font-size: 0.85em; color: var(--text-muted); flex-shrink: 0;}
         .fifa-cal-legend span { display: flex; align-items: center; gap: 5px; }
 
-        /* --- TELA DE ELENCO MODO CARREIRA (NOVA LISTA DE JOGADORES) --- */
+        /* --- TELA DE ELENCO MODO CARREIRA --- */
         .squad-hub-wrapper { display: flex; flex-direction: column; gap: 8px; height: 100%; font-family: 'Teko', sans-serif; overflow-y: auto; padding-bottom: 10px;}
-        
-        .squad-pitch-container { 
-            background: linear-gradient(135deg, #3b28cc 0%, #1e1b4b 100%); 
-            border: 2px solid #5a4bdf;
-            border-radius: 12px; 
-            padding: 10px;
-            display: flex; flex-direction: column; align-items: center;
-            position: relative;
-            flex: 1; 
-            min-height: 380px; 
-        }
+        .squad-pitch-container { background: linear-gradient(135deg, #3b28cc 0%, #1e1b4b 100%); border: 2px solid #5a4bdf; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: center; position: relative; flex: 1; min-height: 380px; }
         .squad-pitch-title { font-size: 1.5em; color: #00d2ff; width: 100%; text-align: left; margin: 0; line-height: 1; letter-spacing: 1px; text-transform: uppercase;}
         .squad-pitch-formation { font-size: 1em; color: white; width: 100%; text-align: left; margin-bottom: 5px; line-height: 1;}
         .squad-status-icons { position: absolute; top: 10px; right: 15px; display: flex; gap: 10px; font-size: 1.2em; }
         .squad-pitch-field { flex: 1; width: 100%; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; position: relative; background: rgba(255,255,255,0.05); margin-top: 5px;}
-
         .squad-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex-shrink: 0; margin-top: 5px;}
-        .sq-card { 
-            background: #060912; 
-            border: 1px solid #141b2d; 
-            border-radius: 8px; 
-            padding: 8px 10px; 
-            display: flex; flex-direction: column; justify-content: flex-start;
-            cursor: pointer; transition: 0.2s;
-            position: relative;
-            overflow: hidden;
-            min-height: 80px;
-        }
+        .sq-card { background: #060912; border: 1px solid #141b2d; border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; justify-content: flex-start; cursor: pointer; transition: 0.2s; position: relative; overflow: hidden; min-height: 80px;}
         .sq-card:active { border-color: var(--cyan); background: #1a2235; }
         .sq-card-title { font-size: 1.1em; color: var(--cyan); margin: 0 0 2px 0; line-height: 1.1; text-transform: uppercase;}
         .sq-card-desc { font-family: 'Roboto', sans-serif; font-size: 0.6em; color: var(--text-muted); margin-top: 2px;}
-        
         .sq-icon-center { font-size: 2em; margin: auto; color: var(--purple-btn); }
         .sq-badge-shield { width: 35px; height: 42px; clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%); margin: auto; display: flex; align-items: center; justify-content: center; font-size: 0.6em; font-weight: bold; border: 1px solid rgba(255,255,255,0.3);}
         .sq-check-icon { position: absolute; bottom: 5px; left: 5px; background: #10b981; color: white; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6em;}
 
-        /* NOVAS CLASSES PARA A LISTA DE JOGADORES (ESTILO FIFA) */
+        /* LISTA JOGADORES (ESTILO FIFA) */
         .fifa-list-group { margin-top: 10px; width: 100%;}
         .fifa-list-title { color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 5px; margin-bottom: 8px; font-family: 'Teko'; font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; }
         .fifa-player-row { display: flex; align-items: center; background: #0b111e; border: 1px solid #141b2d; border-radius: 8px; padding: 10px; margin-bottom: 6px; gap: 10px; cursor: pointer; transition: 0.2s;}
@@ -253,6 +208,25 @@
         .f-ovr-box { display: flex; align-items: center; gap: 8px; }
         .f-growth { color: #10b981; font-size: 0.85em; font-weight: bold; }
         .f-ovr { font-family: 'Teko'; font-size: 1.8em; font-weight: bold; color: white; width: 35px; text-align: right; line-height: 1;}
+
+        /* --- NOVAS CLASSES PARA PLANOS DE JOGO --- */
+        .game-plan-nav { display: flex; overflow-x: auto; background: var(--bg-panel); border-bottom: 2px solid var(--border); scrollbar-width: none; flex-shrink: 0;}
+        .game-plan-nav::-webkit-scrollbar { display: none; }
+        .gp-tab { flex: 1; min-width: 90px; padding: 10px; text-align: center; font-family: 'Teko'; font-size: 1.1em; color: var(--text-muted); cursor: pointer; text-transform: uppercase; white-space: nowrap; transition: 0.2s; }
+        .gp-tab.active { color: var(--cyan); border-bottom: 3px solid var(--cyan); font-weight: bold; background: rgba(0, 210, 255, 0.05);}
+        .gp-content { display: none; padding: 10px; flex-direction: column; gap: 10px; flex: 1; overflow-y: auto;}
+        .gp-content.active { display: flex; }
+        
+        .gp-pitch-area { height: 250px; background: linear-gradient(180deg, #1e3a8a, #0f172a); border: 2px solid #3b82f6; border-radius: 8px; position: relative; margin-bottom: 10px; overflow: hidden; flex-shrink: 0;}
+        .gp-bench-area { background: transparent; border-radius: 8px; padding: 0px; }
+        .gp-bench-title { font-family: 'Teko'; color: var(--cyan); font-size: 1.3em; margin-bottom: 5px; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 4px;}
+        
+        .gp-card { background: #060912; border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+        .gp-card-title { font-family: 'Teko'; font-size: 1.4em; color: var(--gold); margin: 0 0 5px 0; line-height: 1;}
+        .gp-card-text { font-size: 0.75em; color: var(--text-muted); margin: 0 0 10px 0;}
+        .gp-select { width: 100%; background: var(--bg-dark); color: white; border: 1px solid var(--cyan); padding: 10px; border-radius: 6px; font-family: 'Roboto'; font-size: 0.85em; outline: none; transition: 0.2s;}
+        .gp-select:focus { box-shadow: 0 0 8px rgba(0, 210, 255, 0.5); }
+        .gp-label { display: block; font-size: 0.7em; color: var(--cyan); font-weight: bold; margin-bottom: 4px; text-transform: uppercase; margin-top: 10px;}
         
     </style>
 </head>
@@ -393,7 +367,7 @@
                     
                     <div class="matchup-vs">X<br><span style="font-size:0.5em; font-weight:normal">17:30</span></div>
                     
-                    <div class="matchup-team right"><div class="mini-shield adv" id="pm-away-shield-top" style="width:35px; height:40px; font-size:0.6em;">ADV</div><span id="pm-away-name" style="font-size:0.8em">ADVERSÁRIO</span></div>
+                    <div class="matchup-team right"><span id="pm-away-name" style="font-size:0.8em">ADVERSÁRIO</span><div class="mini-shield adv" id="pm-away-shield-top" style="width:35px; height:40px; font-size:0.6em;">ADV</div></div>
                 </div>
                 <div class="match-info-text">Estádio Maracanã | <span id="pm-date"></span></div>
             </div>
@@ -433,8 +407,8 @@
                 
                 <div class="squad-cards-grid">
                     <div class="sq-card" onclick="openScreen('screen-elenco-lista')">
-                        <h3 class="sq-card-title">Elenco Clube</h3>
-                        <p class="sq-card-desc">Atributos, Posições e Contratos.</p>
+                        <h3 class="sq-card-title">Planos de Jogo</h3>
+                        <p class="sq-card-desc">Elenco, Táticas, Funções e Instruções.</p>
                         <div class="sq-badge-shield" id="sh-card-shield">FLA</div>
                         <div class="sq-check-icon">✓</div>
                     </div>
@@ -457,12 +431,91 @@
             </div>
         </div>
 
-        <div id="screen-elenco-lista" class="screen">
-            <div class="table-header"><h2 style="margin:0; font-family: 'Teko'">JOGADORES</h2><button class="back-btn" onclick="openScreen('screen-elenco')">VOLTAR</button></div>
-            <div class="scroll-area" id="ui-lista-elenco">
+        <div id="screen-elenco-lista" class="screen" style="padding: 0;">
+            <div class="table-header" style="margin: 8px; margin-bottom: 0;">
+                <h2 style="margin:0; font-family: 'Teko'">PLANOS DE JOGO</h2>
+                <button class="back-btn" onclick="openScreen('screen-elenco')">VOLTAR</button>
+            </div>
+            
+            <div class="game-plan-nav">
+                <div class="gp-tab active" onclick="changeGpTab('elenco', this)">Elenco</div>
+                <div class="gp-tab" onclick="changeGpTab('esquemas', this)">Esquemas</div>
+                <div class="gp-tab" onclick="changeGpTab('taticas', this)">Táticas</div>
+                <div class="gp-tab" onclick="changeGpTab('funcoes', this)">Funções</div>
+                <div class="gp-tab" onclick="changeGpTab('instrucoes', this)">Instruções</div>
+            </div>
+            
+            <div class="scroll-area">
+                
+                <div id="gp-elenco" class="gp-content active">
+                    <div class="gp-pitch-area" id="gp-pitch-view"></div>
+                    <div class="gp-bench-area">
+                        <div class="gp-bench-title">Banco de Reservas e Plantel</div>
+                        <div id="gp-bench-list"></div>
+                    </div>
                 </div>
+                
+                <div id="gp-esquemas" class="gp-content">
+                    <div class="gp-card">
+                        <h3 class="gp-card-title">FORMAÇÃO TÁTICA</h3>
+                        <p class="gp-card-text">Mude a organização dos jogadores em campo.</p>
+                        <label class="gp-label">Esquema Atual</label>
+                        <select class="gp-select" id="sel-formation" onchange="alert('Formação alterada para: ' + this.value)">
+                            <option value="4-3-3">4-3-3 Ofensivo</option>
+                            <option value="4-4-2">4-4-2 Clássico</option>
+                            <option value="4-2-3-1">4-2-3-1 Controle</option>
+                            <option value="3-5-2">3-5-2 Ala</option>
+                            <option value="5-3-2">5-3-2 Retranca</option>
+                            <option value="4-3-1-2" selected>4-3-1-2 Padrão</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="gp-taticas" class="gp-content">
+                    <div class="gp-card">
+                        <h3 class="gp-card-title">ESTILO DE JOGO</h3>
+                        <p class="gp-card-text">Ajuste como o time se comporta com e sem a bola.</p>
+                        
+                        <label class="gp-label">Pressão Defensiva</label>
+                        <select class="gp-select"><option>Equilibrado</option><option>Pressão no Erro</option><option>Pressão Constante</option><option>Recuar</option></select>
+                        
+                        <label class="gp-label">Velocidade de Chegada</label>
+                        <select class="gp-select"><option>Equilibrado</option><option>Armação Rápida</option><option>Posse de Bola</option><option>Lançamento Longo</option></select>
+                        
+                        <label class="gp-label">Linha Defensiva (Profundidade)</label>
+                        <input type="range" min="1" max="10" value="5" style="width:100%; margin-top: 5px;">
+                    </div>
+                </div>
+                
+                <div id="gp-funcoes" class="gp-content">
+                    <div class="gp-card">
+                        <h3 class="gp-card-title">LIDERANÇA E BOLAS PARADAS</h3>
+                        <p class="gp-card-text">Escolha os especialistas do seu time em cada momento.</p>
+                        
+                        <label class="gp-label">Capitão</label>
+                        <select class="gp-select" id="sel-capitao"></select>
+                        
+                        <label class="gp-label">Cobrador de Faltas (Curta e Longa)</label>
+                        <select class="gp-select" id="sel-falta"></select>
+                        
+                        <label class="gp-label">Cobrador de Pênaltis</label>
+                        <select class="gp-select" id="sel-penalti"></select>
+                        
+                        <label class="gp-label">Cobrador de Escanteios</label>
+                        <select class="gp-select" id="sel-escanteio"></select>
+                    </div>
+                </div>
+                
+                <div id="gp-instrucoes" class="gp-content">
+                    <div class="gp-card">
+                        <h3 class="gp-card-title">INSTRUÇÕES INDIVIDUAIS</h3>
+                        <p class="gp-card-text">Ordens específicas de posicionamento para cada jogador em campo.</p>
+                        <div id="gp-instrucoes-list"></div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
-
         <div id="screen-mercado" class="screen"><div class="table-header"><h2 style="margin:0; font-family: 'Teko'">TRANSFERÊNCIAS</h2></div><div class="scroll-area" id="ui-lista-mercado"></div></div>
         <div id="screen-news" class="screen"><div class="table-header"><h2 style="margin:0; font-family: 'Teko'">NOTÍCIAS</h2><button class="back-btn" onclick="openScreen('screen-central')">VOLTAR</button></div><div class="scroll-area" id="ui-lista-noticias-completa"></div></div>
     </div>
@@ -571,7 +624,6 @@
         
         if(cores[nome]) return cores[nome];
         
-        // GERADOR AUTOMÁTICO DE COR PARA TIMES NÃO MAPEADOS
         let hash = 0;
         for (let i = 0; i < nome.length; i++) { hash = nome.charCodeAt(i) + ((hash << 5) - hash); }
         let color1 = `hsl(${Math.abs(hash) % 360}, 70%, 40%)`;
@@ -803,7 +855,6 @@
         copas.estaduais.knockout.final.push({ id: 'finC', t1: m1.winner, t2: m2.winner, s1: null, s2: null, winner: null });
         scheduleKnockoutEstadual(copas.estaduais.knockout.final, 1, 'Final');
     }
-
     function buildSchedule(meuTime) {
         schedule = []; 
         let domingos = []; let quartas = []; let sabados = [];
@@ -1047,6 +1098,14 @@
         openScreen('screen-' + tabId);
     }
     
+    // --- FUNÇÃO PARA MUDAR AS ABAS DO PLANO DE JOGO ---
+    function changeGpTab(tabId, el) {
+        document.querySelectorAll('.gp-tab').forEach(t => t.classList.remove('active'));
+        if(el) el.classList.add('active');
+        document.querySelectorAll('.gp-content').forEach(c => c.classList.remove('active'));
+        document.getElementById('gp-' + tabId).classList.add('active');
+    }
+    
     function openScreen(screenId) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); document.getElementById(screenId).classList.add('active');
         document.getElementById('main-header').style.display = (screenId === 'screen-pre-match' || screenId === 'screen-match' || screenId === 'screen-comp-menu') ? 'none' : 'flex';
@@ -1159,12 +1218,11 @@
     
     function pushIfUnique(arr, item) { if(item && !arr.includes(item)) arr.push(item); }
 
-    // ALINHAMENTO DO PRÉ-JOGO
+    // ALINHAMENTO DO PRÉ-JOGO E MENU
     function openPreMatch() {
         document.getElementById('pm-home-shield').innerText = ligas.serieA[0].nome.substring(0,3).toUpperCase();
         document.getElementById('pm-home-shield').style.cssText = getShieldCSS(ligas.serieA[0].nome) + "; width:35px; height:40px; font-size:0.6em; display:flex; align-items:center; justify-content:center; clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);";
         
-        // A lógica do CSS row-reverse lidará com inverter o escudo e o nome do visitante
         document.getElementById('pm-away-shield-top').innerText = adversarioHoje.nome.substring(0,3).toUpperCase();
         document.getElementById('pm-away-shield-top').style.cssText = getShieldCSS(adversarioHoje.nome) + "; width:35px; height:40px; font-size:0.6em; display:flex; align-items:center; justify-content:center; clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);";
         
@@ -1180,7 +1238,9 @@
     }
 
     function renderPitch(containerId, elencoCompleto, isAway, teamName) {
-        const container = document.getElementById(containerId); container.innerHTML = "";
+        const container = document.getElementById(containerId);
+        if(!container) return;
+        container.innerHTML = "";
         let timeTitular = getStarting11(elencoCompleto); if(timeTitular.length === 0) { container.innerHTML = "<div style='color:var(--text-muted); text-align:center; padding-top:40px;'>Elenco Oculto</div>"; return; }
         const posicoes = [{x:50,y:82}, {x:35,y:68}, {x:65,y:68}, {x:12,y:64}, {x:88,y:64}, {x:35,y:48}, {x:65,y:48}, {x:35,y:32}, {x:65,y:32}, {x:35,y:15}, {x:65,y:15}];
         let colors = getTeamColors(teamName);
@@ -1267,7 +1327,6 @@
         }, 800);
     }
 
-    // --- CORREÇÃO: FIM DOS JOGOS FANTASMAS (DUELOS 1V1 NOS BASTIDORES) ---
     function processResult(m, a, adv, matchData) {
         let isWin = m > a; let isDraw = m === a; matchData.scoreP = m; matchData.scoreAdv = a;
         let placarStr = `${ligas.serieA[0].nome.toUpperCase()} ${m}x${a} ${adv.nome.toUpperCase()}`;
@@ -1489,6 +1548,71 @@
         calContainer.innerHTML = html;
     }
 
+    // --- NOVA FUNÇÃO PARA RENDERIZAR O PAINEL DE "PLANOS DE JOGO" ---
+    function renderGamePlan() {
+        let meuTime = ligas.serieA[0];
+        if(!meuTime) return;
+
+        // 1. Atualizar o Campinho da aba "Elenco"
+        renderPitch('gp-pitch-view', meuTime.elenco, false, meuTime.nome);
+
+        // 2. Atualizar o Banco de Reservas
+        let titulares = getStarting11(meuTime.elenco);
+        let reservas = meuTime.elenco.filter(j => !titulares.includes(j)).sort((a,b) => b.ovr - a.ovr);
+        
+        let benchList = document.getElementById('gp-bench-list');
+        if(benchList) {
+            let html = '';
+            reservas.forEach(j => {
+                let morIcon = (j.moral === 'Excelente' || j.moral === 'Boa') ? '<i class="fa-solid fa-face-smile f-icon-smile"></i>' : (j.moral === 'Baixa' ? '<i class="fa-solid fa-face-frown" style="color:var(--money-red)"></i>' : '<i class="fa-solid fa-face-meh" style="color:var(--text-muted)"></i>');
+                html += `
+                <div class="fifa-player-row" style="margin-bottom:4px; padding:6px 10px;" onclick="openPlayerProfile(${j.id})">
+                    <div class="f-pos" style="font-size: 1.1em; width: 35px;">${j.p}</div>
+                    <div class="f-name-box">
+                        <div class="f-name" style="font-size: 0.9em;">${j.n}</div>
+                        <div class="f-icons" style="margin-top:0;">${morIcon}</div>
+                    </div>
+                    <div class="f-ovr-box">
+                        <div class="f-ovr" style="font-size: 1.3em;">${j.ovr}</div>
+                    </div>
+                </div>`;
+            });
+            benchList.innerHTML = html;
+        }
+
+        // 3. Atualizar Dropdowns da aba "Funções"
+        let optionsHtml = '';
+        titulares.forEach(j => { optionsHtml += `<option value="${j.id}">${j.n} (${j.p} - ${j.ovr})</option>`; });
+        
+        ['sel-capitao', 'sel-falta', 'sel-penalti', 'sel-escanteio'].forEach(id => {
+            let el = document.getElementById(id);
+            if(el) el.innerHTML = optionsHtml;
+        });
+
+        // 4. Atualizar lista da aba "Instruções"
+        let instList = document.getElementById('gp-instrucoes-list');
+        if(instList) {
+            let instHtml = '';
+            titulares.forEach(j => {
+                instHtml += `
+                <div style="background: var(--bg-dark); padding: 10px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px dashed var(--border); padding-bottom:5px; margin-bottom:5px;">
+                        <span style="font-weight:bold; color:white; font-size:0.9em;">${j.n}</span>
+                        <span style="color:var(--gold); font-family:'Teko'; font-size:1.2em; line-height:1;">${j.p}</span>
+                    </div>
+                    <select class="gp-select" style="padding: 6px; font-size: 0.8em; margin-top:0;">
+                        <option>Equilíbrio (Padrão)</option>
+                        <option>Apoio Ofensivo Total</option>
+                        <option>Ficar na Defesa</option>
+                        <option>Interceptar Passes Agressivo</option>
+                        <option>Cortar para Dentro (Alas)</option>
+                    </select>
+                </div>`;
+            });
+            instList.innerHTML = instHtml;
+        }
+    }
+
     function renderAll() {
         let headerMoney = document.getElementById('ui-money-header');
         if (headerMoney) headerMoney.innerText = "Caixa: " + formatDinheiro(saldoCaixa);
@@ -1525,7 +1649,7 @@
 
         renderFifaCalendar();
         
-        // RENDERIZA TELA DE ELENCO NOVA (SQUAD HUB)
+        // RENDERIZA TELA DE ELENCO NOVA (SQUAD HUB) E PLANO DE JOGO
         let shTeamName = document.getElementById('sh-team-name');
         if(shTeamName) shTeamName.innerText = "PADRÃO " + ligas.serieA[0].nome.toUpperCase();
         
@@ -1537,6 +1661,9 @@
         
         let shPitch = document.getElementById('sh-pitch');
         if(shPitch) renderPitch('sh-pitch', ligas.serieA[0].elenco, false, ligas.serieA[0].nome);
+
+        // Chama a função que preenche as listas do "Plano de Jogo" recém adicionadas
+        renderGamePlan();
 
         let miniLg = 'serieA';
         if (nextMatch) {
@@ -1596,37 +1723,6 @@
                 else if (['carioca', 'paulista', 'mineiro', 'gaucho'].includes(currentTabComp)) { if(i < 4) bStyle = "border-left: 3px solid var(--tab-liberta);"; else if(i >= sorted.length - 2) bStyle = "border-left: 3px solid var(--tab-rebaixamento);"; }
                 tabFull.innerHTML += `<tr class="${rowHl}"><td style="${bStyle}">${i+1}</td><td>${t.nome}</td><td>${t.j}</td><td>${t.v}</td><td>${t.e}</td><td>${t.d}</td><td><b>${t.pts}</b></td></tr>`; 
             });
-        }
-
-        // --- NOVA LISTA DE JOGADORES (TELA SECUNDÁRIA ESTILO FIFA) ---
-        const elencoList = document.getElementById('ui-lista-elenco');
-        if(elencoList) {
-            let htmlLista = '<div class="fifa-list-group"><div class="fifa-list-title">Elenco Principal</div>';
-            ligas.serieA[0].elenco.sort((a,b) => b.ovr - a.ovr).forEach(j => { 
-                
-                // Ícones de status do jogador
-                let potIcon = j.pot > j.ovr ? '<i class="fa-solid fa-gem f-icon-diamond"></i>' : '';
-                let morIcon = (j.moral === 'Excelente' || j.moral === 'Boa') ? '<i class="fa-solid fa-face-smile f-icon-smile"></i>' : (j.moral === 'Baixa' ? '<i class="fa-solid fa-face-frown" style="color:var(--money-red)"></i>' : '<i class="fa-solid fa-face-meh" style="color:var(--text-muted)"></i>');
-                
-                // Crescimento de OVR simulado para visual ficar igual ao FIFA
-                let growth = Math.floor(Math.random() * 4); 
-                let growthHtml = growth > 0 ? `<span class="f-growth">+${growth}</span>` : '';
-                
-                htmlLista += `
-                <div class="fifa-player-row" onclick="openPlayerProfile(${j.id})">
-                    <div class="f-pos">${j.p}</div>
-                    <div class="f-name-box">
-                        <div class="f-name">${j.n}</div>
-                        <div class="f-icons">${morIcon} ${potIcon} <span style="color:var(--text-muted); margin-left:5px;">${j.age} anos</span></div>
-                    </div>
-                    <div class="f-ovr-box">
-                        ${growthHtml}
-                        <div class="f-ovr">${j.ovr}</div>
-                    </div>
-                </div>`; 
-            });
-            htmlLista += '</div>';
-            elencoList.innerHTML = htmlLista;
         }
 
         const mercadoList = document.getElementById('ui-lista-mercado');
