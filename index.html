@@ -55,9 +55,13 @@
         .news-thumb { width: 30px; height: 20px; background: linear-gradient(45deg, #3b82f6, #ec4899); border-radius: 4px; flex-shrink: 0; }
         .news-info h4 { margin: 0; font-size: 0.65em; font-weight: normal; line-height: 1; }
         .news-info span { font-size: 0.55em; color: var(--text-muted); }
-        .mini-table { width: 100%; border-collapse: collapse; font-size: 0.65em; }
-        .mini-table th { text-align: left; color: var(--text-muted); padding-bottom: 2px; }
+
+        /* AJUSTE TABELAS DE CAMPEONATO (MINI-TABLE) */
+        .mini-table { width: 100%; border-collapse: collapse; font-size: 0.65em; text-align: center; }
+        .mini-table th { text-align: center; color: var(--text-muted); padding-bottom: 2px; }
         .mini-table td { padding: 4px 5px; border-bottom: 1px solid var(--border); }
+        .mini-table th:nth-child(2), .mini-table td:nth-child(2) { text-align: left; }
+        
         .row-highlight { background: rgba(0, 210, 255, 0.1); }
         .btn-footer { background: var(--bg-panel); color: var(--cyan); border: none; padding: 4px; font-size: 0.7em; margin-top: auto; border-radius: 4px; cursor: pointer; width: 100%; text-align: center;}
         .agenda-grid { display: flex; justify-content: space-between; margin-bottom: 2px; flex: 1; align-items: center;}
@@ -139,7 +143,7 @@
         .tv-score-box { background: var(--bg-dark); border: 1px solid var(--border); padding: 2px 10px; border-radius: 4px; font-size: 1.6em; font-weight: bold; color: var(--orange); display: flex; align-items: center; justify-content: center; min-width: 55px; line-height: 1.1;}
         .match-log-box { flex: 1; background: #000; margin-top: 80px; margin-bottom: 20px; border-radius: 8px; padding: 15px; font-family: monospace; color: #10b981; overflow-y: auto; font-size: 0.9em; border: 1px solid var(--border); line-height: 1.6;}
 
-        /* LISTAS E MODAL JOGADOR */
+        /* LISTAS E MODAL JOGADOR E NOVO MODAL DE RESULTADO */
         .list-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid var(--border); background: var(--bg-card); margin-bottom: 4px; border-radius: 8px; cursor: pointer; transition: 0.2s; }
         .list-item:active { border-color: var(--cyan); }
         .ovr-box { background: var(--cyan); color: #000; font-weight: bold; padding: 4px 8px; border-radius: 4px; font-size: 0.9em;}
@@ -266,24 +270,25 @@
         .rapida-player-row:active { border-color: var(--cyan); background: #1a2235;}
         .rapida-player-row.selected-swap { border-color: var(--cyan); box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.2); }
 
-        /* --- NOVO CSS CENTRAL DO ELENCO (MODIFICADO PARA TELA FIXA SEM SCROLL HORIZONTAL) --- */
+        /* --- AJUSTE CSS CENTRAL DO ELENCO (CENTRALIZANDO INFORMAÇÕES) --- */
         .ce-container { display: flex; flex-direction: column; height: 100%; background: linear-gradient(180deg, #1e1b4b, #060912); overflow: hidden; }
         .ce-tabs-container { display: flex; border-bottom: 2px solid var(--border); flex-shrink: 0; background: var(--bg-panel); }
         .ce-tab { flex: 1; text-align: center; padding: 10px 1px; color: var(--text-muted); font-family: 'Teko'; font-size: 0.9em; cursor: pointer; text-transform: uppercase; white-space: nowrap; transition: 0.2s; overflow: hidden; text-overflow: ellipsis;}
         .ce-tab.active { color: var(--cyan); border-bottom: 3px solid var(--cyan); font-weight: bold; background: rgba(0, 210, 255, 0.05); }
-        .ce-table-wrapper { flex: 1; overflow-y: auto; overflow-x: hidden; } /* Bloqueio do scroll horizontal */
-        .ce-table { width: 100%; border-collapse: collapse; text-align: left; font-family: 'Roboto', sans-serif; font-size: 0.7em; } /* Removido min-width: 450px para caber na tela */
-        .ce-table th { background: rgba(0,0,0,0.5); padding: 6px 2px; color: var(--text-muted); font-weight: normal; font-family: 'Teko'; font-size: 1.2em; position: sticky; top: 0; z-index: 2; }
+        .ce-table-wrapper { flex: 1; overflow-y: auto; overflow-x: hidden; } 
+        .ce-table { width: 100%; border-collapse: collapse; text-align: center; font-family: 'Roboto', sans-serif; font-size: 0.7em; } 
+        .ce-table th { background: rgba(0,0,0,0.5); padding: 6px 2px; color: var(--text-muted); font-weight: normal; font-family: 'Teko'; font-size: 1.2em; position: sticky; top: 0; z-index: 2; text-align: center; }
+        .ce-table th:nth-child(2) { text-align: left; }
         .ce-table tr { border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s; }
         .ce-table tr:active { background: rgba(109, 40, 217, 0.3); }
         .ce-table tr.selected { background: linear-gradient(90deg, rgba(109, 40, 217, 0.5) 0%, transparent 100%); border-left: 3px solid var(--cyan); }
         .ce-table td { padding: 6px 2px; color: white; vertical-align: middle; }
+        .ce-table td.ce-name { font-weight: bold; text-align: left; }
         .ce-pos { color: var(--gold); font-family: 'Teko'; font-size: 1.3em; width: 30px; text-align: center; font-weight: bold; }
-        .ce-name { font-weight: bold; }
         .ce-ger { font-family: 'Teko'; font-size: 1.4em; color: var(--cyan); width: 30px; text-align: center; font-weight: bold; }
         .ce-icon { font-size: 1.2em; text-align: center; }
         .ce-detail-pane { flex-shrink: 0; background: #0b111e; border-top: 1px solid var(--border); padding: 8px; display: flex; flex-direction: column; gap: 6px; min-height: 160px; box-shadow: 0 -5px 15px rgba(0,0,0,0.5); }
-        .ce-detail-title { font-family: 'Teko'; color: white; font-size: 1.1em; text-transform: uppercase; border-bottom: 1px dashed var(--border); padding-bottom: 2px; }
+        .ce-detail-title { font-family: 'Teko'; color: white; font-size: 1.1em; text-transform: uppercase; border-bottom: 1px dashed var(--border); padding-bottom: 2px; text-align: center;}
         .ce-d-header { display: flex; align-items: center; gap: 10px; margin-bottom: 3px; }
         .ce-d-photo { width: 35px; height: 35px; background: #1e2a44; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3em; border: 1px solid var(--cyan); }
         .ce-d-namebox { flex: 1; }
@@ -468,8 +473,7 @@
                 </div>
             </div>
             <div class="match-log-box" id="match-log"></div>
-            <button id="match-continue" class="back-btn" style="display:none; width: 100%;" onclick="finishMatch()">CONTINUAR A TEMPORADA</button>
-        </div>
+            </div>
 
         <div id="screen-elenco" class="screen">
             <div class="squad-hub-wrapper">
@@ -677,7 +681,7 @@
             </div>
             <div class="p-stats-grid">
                 <div class="p-stat-item"><span>Velocidade</span> <strong id="p-spd">87</strong></div><div class="p-stat-item"><span>Passe</span> <strong id="p-pas">79</strong></div>
-                <div class="p-stat-item"><span>Drible</span> <strong id="p-dri">84</strong></div><div class="p-stat-item"><span>Defesa</span> <strong id="p-def">41</strong></div>
+                <div class="p-stat-item"><span>Drible</span> <strong id="p-def">41</strong></div><div class="p-stat-item"><span>Defesa</span> <strong id="p-def">41</strong></div>
                 <div class="p-stat-item"><span>Físico</span> <strong id="p-phy">73</strong></div><div class="p-stat-item"><span>Moral Atual</span> <strong id="p-morale" style="color:var(--money-green)">Boa</strong></div>
                 <div class="p-stat-item" style="grid-column: 1/3;"><span>Condição Física (Energia)</span> <strong id="p-energy" style="color:var(--bonus-green)">100%</strong></div>
             </div>
@@ -688,6 +692,35 @@
                 <div class="p-info-row"><span>Potencial</span> <strong id="p-pot">89</strong></div>
             </div>
             <button class="pm-btn" style="background:var(--cyan); color:black; margin: 15px; width:calc(100% - 30px);" onclick="closePlayerModal()">FECHAR PERFIL</button>
+        </div>
+    </div>
+
+    <div id="match-result-modal" class="modal-overlay" style="display: none; z-index: 3000;">
+        <div class="player-card-modal" style="border-color: var(--orange);">
+            <div class="player-modal-header" style="justify-content: center; flex-direction: column; background: var(--bg-card);">
+                <h2 style="margin: 0; color: var(--orange); font-family: 'Teko'; letter-spacing: 1px;">FIM DE JOGO</h2>
+                <p style="margin: 0; font-size: 0.75em; color: var(--text-muted);" id="mr-comp-name">Competição</p>
+            </div>
+            <div style="display: flex; justify-content: space-around; align-items: center; padding: 20px 10px; background: linear-gradient(to bottom, #0d1326, #060912);">
+                <div style="display: flex; flex-direction: column; align-items: center; width: 35%;">
+                    <div id="mr-home-shield" class="mini-shield" style="width: 45px; height: 55px; font-size: 0.8em;">FLA</div>
+                    <span id="mr-home-name" style="font-family: 'Teko'; font-size: 1.2em; margin-top: 5px; text-align: center; line-height: 1;">FLAMENGO</span>
+                </div>
+                <div style="font-family: 'Teko'; font-size: 3em; font-weight: bold; color: white; width: 30%; text-align: center; line-height: 1;">
+                    <span id="mr-home-score">0</span> - <span id="mr-away-score">0</span>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; width: 35%;">
+                    <div id="mr-away-shield" class="mini-shield" style="width: 45px; height: 55px; font-size: 0.8em;">ADV</div>
+                    <span id="mr-away-name" style="font-family: 'Teko'; font-size: 1.2em; margin-top: 5px; text-align: center; line-height: 1;">ADVERSÁRIO</span>
+                </div>
+            </div>
+            <div id="mr-penalties" style="text-align: center; color: var(--cyan); font-family: 'Teko'; font-size: 1.2em; display: none; padding-bottom: 5px; background: #060912;"></div>
+            <div style="padding: 10px 15px; background: var(--bg-panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+                <h3 style="margin: 0 0 5px 0; font-family: 'Teko'; font-size: 1.1em; color: var(--text-muted);">DESTAQUES DA PARTIDA</h3>
+                <div id="mr-events-list" style="font-size: 0.75em; color: white; max-height: 120px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px;">
+                    </div>
+            </div>
+            <button class="pm-btn" style="background:var(--orange); color:white; margin: 15px; width:calc(100% - 30px);" onclick="closeMatchResultModal()">CONTINUAR A TEMPORADA</button>
         </div>
     </div>
 
@@ -720,6 +753,10 @@
     let viewCalendarYear = currentDate.getFullYear();
     let currentCeTab = 'status';
     let selectedCePlayerId = null;
+    
+    // VARIÁVEIS DO SISTEMA DE ORDENAÇÃO
+    let ceSortCol = 'ovr'; 
+    let ceSortAsc = false; 
 
     // Ligas e Copas
     let ligas = { serieA: [], serieB: [], serieC: [], serieD: [], carioca: [], paulista: [], mineiro: [], gaucho: [], outros: [] };
@@ -824,7 +861,6 @@
         const est = { "Rossi": "🇦🇷 Argentina", "De La Cruz": "🇺🇾 Uruguai", "Viña": "🇺🇾 Uruguai", "Pulgar": "🇨🇱 Chile", "Gómez": "🇵🇾 Paraguai", "Richard Ríos": "🇨🇴 Colômbia", "Calleri": "🇦🇷 Argentina", "Cano": "🇦🇷 Argentina", "Payet": "🇫🇷 França", "Vegetti": "🇦🇷 Argentina", "Arrascaeta": "🇺🇾 Uruguai" };
         return est[name] || "🇧🇷 Brasil";
     }
-
     // --- NOVA GERAÇÃO DE STATUS E FINANÇAS DOS JOGADORES ---
     function generatePlayerStats(n, p, ovr, teamName) {
         let age = 17 + Math.floor(Math.random() * 18); let base = ovr - 10; let rand = (max) => Math.floor(Math.random() * max);
@@ -1328,26 +1364,26 @@
 
     // --- FUNÇÕES DE ESTATÍSTICA INTELIGENTE DE PARTIDA ---
     function getPlayerWeightForGoal(p) {
-        if(p.p === 'GOL') return 0; // Goleiros não fazem gol
-        if(p.p === 'ZAG') return 1; // Zagueiros raros (escanteios)
+        if(p.p === 'GOL') return 0; 
+        if(p.p === 'ZAG') return 1; 
         if(['LAT','LE','LD'].includes(p.p)) return 2;
         if(p.p === 'VOL') return 3;
         if(p.p === 'MEI') return 6;
-        return 10; // Atacantes e Pontas
+        return 10; 
     }
 
     function getPlayerWeightForAssist(p) {
         if(p.p === 'GOL') return 0;
         if(p.p === 'ZAG') return 1;
-        if(['LAT','LE','LD'].includes(p.p)) return 6; // Laterais cruzam muito
+        if(['LAT','LE','LD'].includes(p.p)) return 6; 
         if(p.p === 'VOL') return 4;
-        if(p.p === 'MEI') return 10; // Armadores
-        return 7; // Atacantes
+        if(p.p === 'MEI') return 10; 
+        return 7; 
     }
 
     function getRandomPlayerForCard(starters) {
         let weightFunc = (p) => {
-            if(p.p === 'ZAG' || p.p === 'VOL') return 10; // Defesa bate mais
+            if(p.p === 'ZAG' || p.p === 'VOL') return 10; 
             if(['LAT','LE','LD'].includes(p.p)) return 7;
             if(p.p === 'MEI') return 4;
             if(p.p === 'GOL') return 1;
@@ -1374,12 +1410,13 @@
         }
         return starters[0];
     }
-
     // --- FUNÇÕES DA NOVA CENTRAL DO ELENCO ---
     function openCentralElenco() {
         managementReturnScreen = 'screen-elenco';
         currentCeTab = 'status';
         selectedCePlayerId = null;
+        ceSortCol = 'ovr'; // Reseta o sort pro GER quando abrir
+        ceSortAsc = false;
         changeCeTab('status', document.getElementById('tab-ce-status'));
         openScreen('screen-central-elenco');
     }
@@ -1394,6 +1431,21 @@
         document.querySelectorAll('.ce-tab').forEach(t => t.classList.remove('active'));
         if(el) el.classList.add('active');
         currentCeTab = tabId;
+        // Reseta o sort principal ao mudar de aba
+        ceSortCol = 'ovr'; 
+        ceSortAsc = false;
+        renderCeTable();
+    }
+
+    // NOVA FUNÇÃO DE ORDENAÇÃO DE COLUNAS
+    function sortCeData(col) {
+        if (ceSortCol === col) {
+            ceSortAsc = !ceSortAsc; // Inverte a ordem se clicar na mesma coluna
+        } else {
+            ceSortCol = col;
+            // Textos organizam de A a Z por padrão. Números do maior pro menor.
+            ceSortAsc = (col === 'n' || col === 'p' || col === 'role') ? true : false; 
+        }
         renderCeTable();
     }
 
@@ -1405,11 +1457,60 @@
         let tbody = document.getElementById('ce-table-body');
         thead.innerHTML = ""; tbody.innerHTML = "";
         
-        let sortedElenco = [...meuTime.elenco].sort((a, b) => b.ovr - a.ovr);
+        // LÓGICA DE ORDENAÇÃO DINÂMICA
+        let sortedElenco = [...meuTime.elenco].sort((a, b) => {
+            let valA, valB;
+            
+            // Define o que será comparado baseado na aba e coluna escolhida
+            if(currentCeTab === 'status') {
+                if(ceSortCol === 'p') { valA = a.p; valB = b.p; }
+                else if(ceSortCol === 'n') { valA = a.n; valB = b.n; }
+                else if(ceSortCol === 'ovr') { valA = a.ovr; valB = b.ovr; }
+                else if(ceSortCol === 'role') { valA = a.role; valB = b.role; }
+                else if(ceSortCol === 'form') { valA = a.form; valB = b.form; }
+                else if(ceSortCol === 'moral') { valA = (a.moral==='Excelente'?4:(a.moral==='Boa'?3:(a.moral==='Normal'?2:1))); valB = (b.moral==='Excelente'?4:(b.moral==='Boa'?3:(b.moral==='Normal'?2:1))); }
+                else { valA = a.ovr; valB = b.ovr; }
+            } else if (currentCeTab === 'estatisticas') {
+                if(ceSortCol === 'p') { valA = a.p; valB = b.p; }
+                else if(ceSortCol === 'n') { valA = a.n; valB = b.n; }
+                else if(ceSortCol === 'ovr') { valA = a.ovr; valB = b.ovr; }
+                else if(ceSortCol === 'games') { valA = a.stats.games; valB = b.stats.games; }
+                else if(ceSortCol === 'goals') { valA = a.stats.goals; valB = b.stats.goals; }
+                else if(ceSortCol === 'assists') { valA = a.stats.assists; valB = b.stats.assists; }
+                else if(ceSortCol === 'minutes') { valA = a.stats.minutes; valB = b.stats.minutes; }
+                else { valA = a.ovr; valB = b.ovr; }
+            } else if (currentCeTab === 'desenvolvimento') {
+                if(ceSortCol === 'p') { valA = a.p; valB = b.p; }
+                else if(ceSortCol === 'n') { valA = a.n; valB = b.n; }
+                else if(ceSortCol === 'ovr') { valA = a.ovr; valB = b.ovr; }
+                else if(ceSortCol === 'pot') { valA = a.pot; valB = b.pot; }
+                else { valA = a.ovr; valB = b.ovr; }
+            } else if (currentCeTab === 'financas') {
+                if(ceSortCol === 'p') { valA = a.p; valB = b.p; }
+                else if(ceSortCol === 'n') { valA = a.n; valB = b.n; }
+                else if(ceSortCol === 'ovr') { valA = a.ovr; valB = b.ovr; }
+                else if(ceSortCol === 'contract') { valA = a.contract; valB = b.contract; }
+                else if(ceSortCol === 'salary') { valA = a.salary; valB = b.salary; }
+                else if(ceSortCol === 'value') { valA = a.value; valB = b.value; }
+                else { valA = a.ovr; valB = b.ovr; }
+            }
+
+            if (valA < valB) return ceSortAsc ? -1 : 1;
+            if (valA > valB) return ceSortAsc ? 1 : -1;
+            return 0;
+        });
+
         if(selectedCePlayerId === null && sortedElenco.length > 0) selectedCePlayerId = sortedElenco[0].id;
         
+        // Gerador de cabeçalhos dinâmicos com setas e cliques
+        const getTh = (colName, label) => {
+            let icon = '';
+            if (ceSortCol === colName) icon = ceSortAsc ? ' <span style="color:var(--cyan); font-size:0.8em;">▲</span>' : ' <span style="color:var(--cyan); font-size:0.8em;">▼</span>';
+            return `<th onclick="sortCeData('${colName}')" style="cursor:pointer; user-select:none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--text-muted)'">${label}${icon}</th>`;
+        };
+
         if(currentCeTab === 'status') {
-            thead.innerHTML = `<tr><th>Pos.</th><th>Nome</th><th>GER</th><th>Função</th><th>Fase</th><th>Moral</th></tr>`;
+            thead.innerHTML = `<tr>${getTh('p', 'Pos.')}${getTh('n', 'Nome')}${getTh('ovr', 'GER')}${getTh('role', 'Função')}${getTh('form', 'Fase')}${getTh('moral', 'Moral')}</tr>`;
             sortedElenco.forEach(j => {
                 let hl = j.id === selectedCePlayerId ? 'selected' : '';
                 let mIcon = j.moral === 'Excelente' ? '😄' : (j.moral === 'Boa' ? '🙂' : (j.moral === 'Normal' ? '😐' : '😠'));
@@ -1417,20 +1518,20 @@
                 tbody.innerHTML += `<tr class="${hl}" onclick="selectCePlayer(${j.id})"><td class="ce-pos">${j.p}</td><td class="ce-name">${j.n.split(' ')[0]}</td><td class="ce-ger">${j.ovr}</td><td>${j.role}</td><td class="ce-icon">${fIcon}</td><td class="ce-icon">${mIcon}</td></tr>`;
             });
         } else if (currentCeTab === 'estatisticas') {
-            thead.innerHTML = `<tr><th>Pos.</th><th>Nome</th><th>GER</th><th>JOG</th><th>GOL</th><th>ASS</th><th>MIN</th></tr>`;
+            thead.innerHTML = `<tr>${getTh('p', 'Pos.')}${getTh('n', 'Nome')}${getTh('ovr', 'GER')}${getTh('games', 'JOG')}${getTh('goals', 'GOL')}${getTh('assists', 'ASS')}${getTh('minutes', 'MIN')}</tr>`;
             sortedElenco.forEach(j => {
                 let hl = j.id === selectedCePlayerId ? 'selected' : '';
                 tbody.innerHTML += `<tr class="${hl}" onclick="selectCePlayer(${j.id})"><td class="ce-pos">${j.p}</td><td class="ce-name">${j.n.split(' ')[0]}</td><td class="ce-ger">${j.ovr}</td><td style="text-align:center">${j.stats.games}</td><td style="text-align:center">${j.stats.goals}</td><td style="text-align:center">${j.stats.assists}</td><td style="text-align:center">${j.stats.minutes}'</td></tr>`;
             });
         } else if (currentCeTab === 'desenvolvimento') {
-            thead.innerHTML = `<tr><th>Pos.</th><th>Nome</th><th>GER</th><th>POT</th><th>Plano</th><th>Evolução</th></tr>`;
+            thead.innerHTML = `<tr>${getTh('p', 'Pos.')}${getTh('n', 'Nome')}${getTh('ovr', 'GER')}${getTh('pot', 'POT')}<th>Plano</th><th>Evolução</th></tr>`;
             sortedElenco.forEach(j => {
                 let hl = j.id === selectedCePlayerId ? 'selected' : '';
                 let plano = j.age < 23 ? 'Promessa' : (j.age > 30 ? 'Veterano' : 'Equilibrado');
                 tbody.innerHTML += `<tr class="${hl}" onclick="selectCePlayer(${j.id})"><td class="ce-pos">${j.p}</td><td class="ce-name">${j.n.split(' ')[0]}</td><td class="ce-ger">${j.ovr}</td><td style="color:var(--bonus-green); font-weight:bold; text-align:center;">${j.pot}</td><td>${plano}</td><td class="ce-icon" style="color:var(--bonus-green)">+0</td></tr>`;
             });
         } else if (currentCeTab === 'financas') {
-            thead.innerHTML = `<tr><th>Pos.</th><th>Nome</th><th>GER</th><th>Contrato</th><th>Salário</th><th>Valor</th></tr>`;
+            thead.innerHTML = `<tr>${getTh('p', 'Pos.')}${getTh('n', 'Nome')}${getTh('ovr', 'GER')}${getTh('contract', 'Contrato')}${getTh('salary', 'Salário')}${getTh('value', 'Valor')}</tr>`;
             sortedElenco.forEach(j => {
                 let hl = j.id === selectedCePlayerId ? 'selected' : '';
                 let cMeses = j.contract + "M";
@@ -1844,6 +1945,42 @@
         return isTie;
     }
 
+    function showMatchResultModal(m, a, adv, matchData, pen) {
+        document.getElementById('mr-comp-name').innerText = matchData.comp.toUpperCase();
+        
+        let pName = ligas.serieA[0].nome;
+        document.getElementById('mr-home-shield').innerText = pName.substring(0,3).toUpperCase();
+        document.getElementById('mr-home-shield').style.cssText = getShieldCSS(pName) + "; width:45px; height:55px; font-size:0.8em; display:flex; align-items:center; justify-content:center; clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);";
+        document.getElementById('mr-home-name').innerText = pName.toUpperCase();
+        document.getElementById('mr-home-score').innerText = m;
+
+        document.getElementById('mr-away-shield').innerText = adv.nome.substring(0,3).toUpperCase();
+        document.getElementById('mr-away-shield').style.cssText = getShieldCSS(adv.nome) + "; width:45px; height:55px; font-size:0.8em; display:flex; align-items:center; justify-content:center; clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);";
+        document.getElementById('mr-away-name').innerText = adv.nome.toUpperCase();
+        document.getElementById('mr-away-score').innerText = a;
+
+        let penDiv = document.getElementById('mr-penalties');
+        if(pen) { penDiv.innerText = pen; penDiv.style.display = 'block'; } else { penDiv.style.display = 'none'; }
+
+        let eventsList = document.getElementById('mr-events-list');
+        eventsList.innerHTML = "";
+        if(matchData.lastEventString && matchData.lastEventString.trim() !== '') {
+            let events = matchData.lastEventString.split('\n').filter(e => e.trim() !== '');
+            events.forEach(e => {
+                eventsList.innerHTML += `<div style="padding: 4px; border-bottom: 1px solid rgba(255,255,255,0.05);">${e}</div>`;
+            });
+        } else {
+            eventsList.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:10px;">Sem destaques na partida</div>`;
+        }
+
+        document.getElementById('match-result-modal').style.display = 'flex';
+    }
+
+    function closeMatchResultModal() {
+        document.getElementById('match-result-modal').style.display = 'none';
+        finishMatch();
+    }
+
     function quickSim() {
         let m = 0, a = 0; 
         
@@ -1860,13 +1997,10 @@
         for(let i=0; i<6; i++) { let r = Math.random()*100; if(r < cM-15) m++; else if (r > cM+15) a++; }
         
         let pen = ""; 
-        if(checkPenalty(m, a, jogoHojeGlobal)) { let winPen = Math.random() > 0.5; pen = winPen ? "\n(Você venceu nos pênaltis!)" : "\n(Adversário venceu nos pênaltis...)"; if(winPen) m++; else a++; }
+        if(checkPenalty(m, a, jogoHojeGlobal)) { let winPen = Math.random() > 0.5; pen = winPen ? "VITÓRIA NOS PÊNALTIS" : "DERROTA NOS PÊNALTIS"; if(winPen) m++; else a++; }
         
         processResult(m, a, adversarioHoje, jogoHojeGlobal);
-        
-        let eventosTxt = jogoHojeGlobal.lastEventString || "";
-        alert(`FIM DE JOGO!\n${ligas.serieA[0].nome} ${m} x ${a} ${adversarioHoje.nome}${pen}\n${eventosTxt}`); 
-        finishMatch();
+        showMatchResultModal(m, a, adversarioHoje, jogoHojeGlobal, pen);
     }
 
     function startMatchLog() {
@@ -1879,7 +2013,6 @@
         document.getElementById('match-adv-shield').innerText = adversarioHoje.nome.substring(0,3).toUpperCase();
         document.getElementById('match-adv-shield').style.cssText = getShieldCSS(adversarioHoje.nome) + "; width: 28px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 0.55em; font-weight: bold; clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%); border: 1px solid rgba(255,255,255,0.2);";
         document.getElementById('live-comp-name').innerText = `TRANSMISSÃO | ${jogoHojeGlobal.comp.toUpperCase()}`;
-        document.getElementById('match-continue').style.display = "none"; 
         
         let aiFormations = ['4-3-3', '4-4-2', '4-2-3-1', '5-3-2', '3-5-2'];
         aiCurrentFormation = aiFormations[Math.floor(Math.random() * aiFormations.length)];
@@ -1932,22 +2065,17 @@
                     log.innerHTML += "<br>⚖️ Empate no agregado! Decisão nos Pênaltis...";
                     setTimeout(() => {
                         let winPen = Math.random() > 0.5;
-                        if(winPen) { gM++; log.innerHTML += `<br>🏆 ${ligas.serieA[0].nome.toUpperCase()} VENCEU NOS PÊNALTIS!`; } else { gA++; log.innerHTML += "<br>❌ Derrota nas penalidades..."; }
+                        let penText = "";
+                        if(winPen) { gM++; penText="VITÓRIA NOS PÊNALTIS"; log.innerHTML += `<br>🏆 ${ligas.serieA[0].nome.toUpperCase()} VENCEU NOS PÊNALTIS!`; } else { gA++; penText="DERROTA NOS PÊNALTIS"; log.innerHTML += "<br>❌ Derrota nas penalidades..."; }
                         placar.innerText = `${gM} - ${gA}`; log.scrollTop = log.scrollHeight;
                         
                         processResult(gM, gA, adversarioHoje, jogoHojeGlobal);
-                        let eventosTxt = jogoHojeGlobal.lastEventString || "";
-                        if(eventosTxt) log.innerHTML += `<br><span style="color:var(--cyan); font-size:0.9em; display:block; margin-top:10px; border-top:1px dashed var(--border); padding-top:5px;"><b>ESTATÍSTICAS DO SEU TIME:</b><br>${eventosTxt.replace(/\n/g, '<br>')}</span>`;
-                        log.scrollTop = log.scrollHeight;
-                        document.getElementById('match-continue').style.display = "block"; 
+                        showMatchResultModal(gM, gA, adversarioHoje, jogoHojeGlobal, penText);
                     }, 1500);
                 } else {
                     log.innerHTML += "<br>🏁 Fim de jogo!"; 
                     processResult(gM, gA, adversarioHoje, jogoHojeGlobal);
-                    let eventosTxt = jogoHojeGlobal.lastEventString || "";
-                    if(eventosTxt) log.innerHTML += `<br><span style="color:var(--cyan); font-size:0.9em; display:block; margin-top:10px; border-top:1px dashed var(--border); padding-top:5px;"><b>ESTATÍSTICAS DO SEU TIME:</b><br>${eventosTxt.replace(/\n/g, '<br>')}</span>`;
-                    log.scrollTop = log.scrollHeight;
-                    document.getElementById('match-continue').style.display = "block"; 
+                    showMatchResultModal(gM, gA, adversarioHoje, jogoHojeGlobal, "");
                 }
             }
         }, 800);
@@ -1972,13 +2100,13 @@
             if(starters.length > 0) {
                 let p = getRandomPlayerForCard(starters);
                 p.stats.cards++;
-                matchEvents.cards.push(`🟨 ${p.n.split(' ')[0]}`);
+                matchEvents.cards.push(`🟨 Cartão Amarelo: ${p.n.split(' ')[0]}`);
             }
         }
         if(redCount > 0 && starters.length > 0) {
             let p = getRandomPlayerForCard(starters);
             p.stats.cards += 2; 
-            matchEvents.cards.push(`🟥 ${p.n.split(' ')[0]}`);
+            matchEvents.cards.push(`🟥 Cartão Vermelho: ${p.n.split(' ')[0]}`);
         }
 
         // Simula Gols e Assistências com peso por posição
@@ -1991,16 +2119,16 @@
                     let assister = getRandomPlayerWeighted(starters, getPlayerWeightForAssist);
                     if(assister.id !== scorer.id) {
                         assister.stats.assists++;
-                        assistStr = ` (Ast: ${assister.n.split(' ')[0]})`;
+                        assistStr = ` (Assistência: ${assister.n.split(' ')[0]})`;
                     }
                 }
-                matchEvents.goals.push(`⚽ ${scorer.n.split(' ')[0]}${assistStr}`);
+                matchEvents.goals.push(`⚽ Gol: ${scorer.n.split(' ')[0]}${assistStr}`);
             }
         }
         
         let eventString = "";
-        if(matchEvents.goals.length > 0) eventString += "\nGols a favor: " + matchEvents.goals.join(', ');
-        if(matchEvents.cards.length > 0) eventString += "\nCartões: " + matchEvents.cards.join(', ');
+        if(matchEvents.goals.length > 0) eventString += matchEvents.goals.join('\n') + "\n";
+        if(matchEvents.cards.length > 0) eventString += matchEvents.cards.join('\n');
         matchData.lastEventString = eventString;
 
         let isWin = m > a; let isDraw = m === a; matchData.scoreP = m; matchData.scoreAdv = a;
