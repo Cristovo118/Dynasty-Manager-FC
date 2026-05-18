@@ -166,6 +166,14 @@
         .p-info-row span { color: var(--text-muted); }
         .p-info-row strong { color: var(--cyan); font-weight: bold;}
 
+        /* --- ESTILOS DO NOVO MODAL DE CONTRATOS --- */
+        .c-form-group { margin-bottom: 12px; }
+        .c-label { display: block; font-size: 0.7em; color: var(--cyan); margin-bottom: 6px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px; }
+        .c-input, .c-select { width: 100%; background: #0b111e; border: 1px solid var(--border); color: white; padding: 10px; border-radius: 6px; font-family: 'Roboto'; outline: none; transition: 0.2s;}
+        .c-input:focus, .c-select:focus { border-color: var(--cyan); box-shadow: 0 0 5px rgba(0, 210, 255, 0.3); }
+        .c-range-row { display: flex; align-items: center; gap: 10px; }
+        .c-val-display { font-family: 'Teko'; font-size: 1.4em; color: var(--money-green); width: 100px; text-align: right; line-height: 1; }
+
         /* --- ESTILO CALENDÁRIO MODO CARREIRA (FIFA) --- */
         .fifa-calendar-wrapper { display: flex; flex-direction: column; gap: 8px; font-family: 'Teko', sans-serif; height: 100%; padding-bottom: 5px; }
         .fifa-calendar-main { flex: 1; display: flex; flex-direction: column; background: #070b15; border: 1px solid #1a2235; border-radius: 12px; padding: 5px; overflow: hidden; position: relative;}
@@ -298,7 +306,8 @@
         .ce-d-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 2px; }
         .ce-d-row span:first-child { color: var(--text-muted); }
         .ce-d-row span:last-child { color: white; font-weight: bold; }
-        .ce-action-btn { background: var(--cyan); color: black; border: none; border-radius: 4px; padding: 4px; font-family: 'Teko'; font-size: 1.1em; cursor: pointer; width: 100%; margin-top: auto; }
+        .ce-action-btn { background: var(--cyan); color: black; border: none; border-radius: 4px; padding: 6px; font-family: 'Teko'; font-size: 1.2em; font-weight: bold; cursor: pointer; width: 100%; margin-top: auto; letter-spacing: 1px; transition: 0.2s;}
+        .ce-action-btn:active { transform: scale(0.98); background: white; }
     </style>
 </head>
 <body>
@@ -350,7 +359,8 @@
                     <div class="box-title" style="margin-bottom: 2px;">Financeiro</div>
                     <div class="finance-row"><span>Saldo atual</span><span class="val-pos" id="fin-saldo">€ 30.000.000</span></div>
                     <div class="finance-row"><span>Receita (mês)</span><span class="val-pos" id="fin-receita">€ 1.350.000</span></div>
-                    <div class="finance-row"><span>Despesa (mês)</span><span class="val-neg" id="fin-despesa">-€ 750.000</span></div>
+                    <div class="finance-row"><span>Despesas Estruturais</span><span class="val-neg" id="fin-despesa">-€ 750.000</span></div>
+                    <div class="finance-row"><span>Salários (mês)</span><span class="val-neg" id="fin-salarios">-€ 0</span></div>
                     <div class="finance-row"><span>Premiações de Copa</span><span class="val-pos" id="fin-premios">€ 0</span></div>
                 </div>
             </div>
@@ -425,7 +435,16 @@
         <div id="screen-finance" class="screen">
             <div class="table-header"><h2 style="margin:0; font-family: 'Teko'">RELATÓRIO FINANCEIRO</h2><button class="back-btn" onclick="openScreen('screen-central')">VOLTAR</button></div>
             <div class="scroll-area">
-                <div class="box" style="margin-bottom: 15px;"><h3 style="color:var(--cyan); margin-top:0;">Resumo Anual</h3><div class="finance-row"><span>Saldo Total em Caixa</span><span class="val-pos" id="fin-rel-saldo">€ 30.000.000</span></div><div class="finance-row"><span>Premiações de Copas (Acumulado)</span><span class="val-pos" id="fin-rel-premios">€ 0</span></div><div class="finance-row"><span>Patrocínios</span><span class="val-pos" id="fin-rel-receita">€ 12.000.000</span></div><div class="finance-row"><span>Direitos de TV</span><span class="val-pos">€ 25.000.000</span></div><div class="finance-row"><span>Bilheteria</span><span class="val-pos">€ 4.500.000</span></div><div class="finance-row"><span>Manutenção do Estádio</span><span class="val-neg" id="fin-rel-despesa">-€ 1.200.000</span></div></div>
+                <div class="box" style="margin-bottom: 15px;">
+                    <h3 style="color:var(--cyan); margin-top:0;">Resumo Anual</h3>
+                    <div class="finance-row"><span>Saldo Total em Caixa</span><span class="val-pos" id="fin-rel-saldo">€ 30.000.000</span></div>
+                    <div class="finance-row"><span>Premiações de Copas (Acumulado)</span><span class="val-pos" id="fin-rel-premios">€ 0</span></div>
+                    <div class="finance-row"><span>Patrocínios</span><span class="val-pos" id="fin-rel-receita">€ 12.000.000</span></div>
+                    <div class="finance-row"><span>Direitos de TV</span><span class="val-pos">€ 25.000.000</span></div>
+                    <div class="finance-row"><span>Bilheteria</span><span class="val-pos">€ 4.500.000</span></div>
+                    <div class="finance-row"><span>Manutenção do Estádio</span><span class="val-neg" id="fin-rel-despesa">-€ 1.200.000</span></div>
+                    <div class="finance-row"><span>Salários do Elenco (mês)</span><span class="val-neg" id="fin-rel-salarios">-€ 0</span></div>
+                </div>
                 <div class="box"><h3 style="color:var(--gold); margin-top:0;">Regras de Premiação</h3><div class="finance-row"><span>Vitória na Libertadores</span><span class="val-pos">+ € 300.000</span></div><div class="finance-row"><span>Empate na Libertadores</span><span class="val-pos">+ € 100.000</span></div><div class="finance-row"><span>Avançar na Copa do Brasil</span><span class="val-pos">+ € 500.000</span></div></div>
             </div>
         </div>
@@ -648,7 +667,7 @@
                     <div class="ce-tab active" id="tab-ce-status" onclick="changeCeTab('status', this)">STATUS</div>
                     <div class="ce-tab" id="tab-ce-estatisticas" onclick="changeCeTab('estatisticas', this)">ESTATÍSTICAS</div>
                     <div class="ce-tab" id="tab-ce-desenvolvimento" onclick="changeCeTab('desenvolvimento', this)">DESENVOLVIMENTO</div>
-                    <div class="ce-tab" id="tab-ce-financas" onclick="changeCeTab('financas', this)">FINANÇAS</div>
+                    <div class="ce-tab" id="tab-ce-financas" onclick="changeCeTab('financas', this)">CONTRATO</div>
                     <div class="ce-tab" style="color: #ef4444; font-weight: bold; flex: 0.2; max-width: 35px; border-left: 1px solid var(--border); font-size: 1.2em;" onclick="closeCentralElenco()">✖</div>
                 </div>
                 
@@ -724,6 +743,74 @@
         </div>
     </div>
 
+    <div id="contract-modal" class="modal-overlay" style="display: none; z-index: 3500;">
+        <div class="player-card-modal">
+            <div class="player-modal-header" style="background: var(--bg-panel); border-bottom: 2px solid var(--cyan);">
+                <div class="p-photo">✍️</div>
+                <div class="p-title-box">
+                    <h2 id="cm-name" style="color: var(--cyan); font-family: 'Teko'; font-size: 1.6em; line-height: 1;">Nome Jogador</h2>
+                    <p id="cm-desc" style="color: var(--text-muted); font-size: 0.8em; margin:0;">Negociação de Contrato</p>
+                </div>
+                <button class="close-btn" onclick="closeContractModal()">✖</button>
+            </div>
+            <div style="padding: 15px; background: #060912; overflow-y: auto; max-height: 60vh;">
+                
+                <div class="c-form-group">
+                    <label class="c-label">Função no Elenco</label>
+                    <select id="cm-role" class="c-select">
+                        <option value="Crucial">Crucial</option>
+                        <option value="Importante">Importante</option>
+                        <option value="Rodízio">Rodízio</option>
+                        <option value="Esporádico">Esporádico</option>
+                        <option value="Promessa">Promessa</option>
+                    </select>
+                </div>
+
+                <div class="c-form-group">
+                    <label class="c-label">Tempo a Adicionar</label>
+                    <div class="c-range-row">
+                        <input type="range" id="cm-duration" min="12" max="60" step="12" class="c-input" oninput="updateContractDurationDisplay(this.value)">
+                        <span id="cm-duration-val" class="c-val-display" style="color: white; width: 140px; font-size: 1.1em;">+ 1 Ano</span>
+                    </div>
+                    <div style="font-size: 0.65em; color: var(--text-muted); margin-top: 4px; text-align: right;" id="cm-duration-total">Novo Vínculo: --</div>
+                </div>
+
+                <div class="c-form-group">
+                    <label class="c-label">Salário Semanal Proposto</label>
+                    <div class="c-range-row">
+                        <input type="range" id="cm-salary" min="1000" max="500000" step="1000" class="c-input" oninput="updateContractSalaryDisplay(this.value)">
+                        <span id="cm-salary-val" class="c-val-display" style="width: 100px;">€ 10k</span>
+                    </div>
+                </div>
+
+                <div class="c-form-group">
+                    <label class="c-label">Cláusula de Rescisão</label>
+                    <div class="c-range-row">
+                        <input type="range" id="cm-clause" min="0" max="300000000" step="1000000" class="c-input" oninput="updateContractClauseDisplay(this.value)">
+                        <span id="cm-clause-val" class="c-val-display" style="color: var(--gold); width: 100px;">€ 50M</span>
+                    </div>
+                </div>
+
+                <div class="c-form-group">
+                    <label class="c-label">Bônus por Metas (Gols / Clean Sheets)</label>
+                    <select id="cm-bonus" class="c-select">
+                        <option value="0">Nenhum Bônus</option>
+                        <option value="1">Bônus Padrão (10% do salário)</option>
+                        <option value="2">Bônus Agressivo (25% do salário)</option>
+                    </select>
+                </div>
+
+            </div>
+            
+            <div id="cm-renewal-cost" style="text-align: center; color: var(--money-red); font-size: 0.85em; margin-bottom: 10px; font-family: 'Teko'; letter-spacing: 1px;">CUSTO DE RENOVAÇÃO (LUVAS): € 0</div>
+            
+            <div style="padding: 10px; background: var(--bg-panel); display: flex; gap: 10px; border-top: 1px solid var(--border);">
+                <button class="pm-btn" style="background: var(--money-red); flex: 1; font-size: 1.1em;" onclick="closeContractModal()">CANCELAR</button>
+                <button class="pm-btn" style="background: var(--bonus-green); flex: 2; font-size: 1.1em; color: #000;" onclick="proposeContract()">ENVIAR PROPOSTA</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 <script>
     // --- DATABASE GIGANTE: > 300 TIMES + ESTADUAIS ---
@@ -754,9 +841,10 @@
     let currentCeTab = 'status';
     let selectedCePlayerId = null;
     
-    // VARIÁVEIS DO SISTEMA DE ORDENAÇÃO
+    // VARIÁVEIS DO SISTEMA DE ORDENAÇÃO E CONTRATO
     let ceSortCol = 'ovr'; 
     let ceSortAsc = false; 
+    let currentNegotiationPlayerId = null;
 
     // Ligas e Copas
     let ligas = { serieA: [], serieB: [], serieC: [], serieD: [], carioca: [], paulista: [], mineiro: [], gaucho: [], outros: [] };
@@ -779,11 +867,22 @@
 
     function addMoney(amount, reason) {
         saldoCaixa += amount; totalPremiosCopa += amount;
-        addNews(`Caixa: +€ ${(amount/1000000).toFixed(1)}M (${reason})`);
+        addNews(`Caixa: ${(amount > 0 ? '+' : '')}€ ${(amount/1000000).toFixed(1)}M (${reason})`);
         let headerMoney = document.getElementById('ui-money-header');
         if (headerMoney) headerMoney.innerText = "Caixa: " + formatDinheiro(saldoCaixa);
     }
     function formatDinheiro(num) { return "€ " + num.toLocaleString('pt-BR'); }
+
+    // --- FORMATADOR DE CONTRATO REALISTA (ATUALIZADO) ---
+    function formatContractDuration(months) {
+        if(months <= 0) return "Expirado";
+        if(months >= 12) {
+            let anos = Math.floor(months / 12);
+            return anos + (anos === 1 ? " Ano" : " Anos");
+        } else {
+            return months + (months === 1 ? " Mês" : " Meses");
+        }
+    }
 
     // --- NOVO GERADOR DE CORES PROFISSIONAIS ---
     function isDarkColor(hex) {
@@ -861,7 +960,8 @@
         const est = { "Rossi": "🇦🇷 Argentina", "De La Cruz": "🇺🇾 Uruguai", "Viña": "🇺🇾 Uruguai", "Pulgar": "🇨🇱 Chile", "Gómez": "🇵🇾 Paraguai", "Richard Ríos": "🇨🇴 Colômbia", "Calleri": "🇦🇷 Argentina", "Cano": "🇦🇷 Argentina", "Payet": "🇫🇷 França", "Vegetti": "🇦🇷 Argentina", "Arrascaeta": "🇺🇾 Uruguai" };
         return est[name] || "🇧🇷 Brasil";
     }
-    // --- NOVA GERAÇÃO DE STATUS E FINANÇAS DOS JOGADORES ---
+    
+    // --- NOVA GERAÇÃO DE STATUS E FINANÇAS DOS JOGADORES (ATUALIZADA) ---
     function generatePlayerStats(n, p, ovr, teamName) {
         let age = 17 + Math.floor(Math.random() * 18); let base = ovr - 10; let rand = (max) => Math.floor(Math.random() * max);
         let spd, pas, dri, def, phy;
@@ -876,7 +976,6 @@
         let pot = ovr + Math.floor(Math.random() * (37 - age) / 2); 
         let moral = ["Excelente", "Boa", "Normal", "Baixa"][Math.floor(Math.random() * 3)]; 
         
-        // Novos cálculos para a Central do Elenco
         let role = ovr >= 80 ? "Crucial" : (ovr >= 75 ? "Importante" : (ovr >= 65 ? "Rodízio" : "Promessa"));
         let sal = Math.floor(Math.pow(ovr, 2.3) * 8); 
         let val = Math.floor(Math.pow(ovr, 3.2) * 50); 
@@ -886,7 +985,7 @@
             spd: clamp(spd), pas: clamp(pas), dri: clamp(dri), def: clamp(def), phy: clamp(phy), pot: clamp(pot), 
             contract: 12 + rand(36), form: 75 + rand(25), moral: moral, 
             isStarter: false, pitchIndex: -1, energy: 100,
-            role: role, salary: sal, value: val,
+            role: role, salary: sal, weeklySalary: Math.floor(sal/4), value: val, releaseClause: Math.floor(val * 1.5), bonusLevel: 0,
             stats: { games: 0, goals: 0, assists: 0, cards: 0, minutes: 0 }
         };
     }
@@ -1265,6 +1364,7 @@
         renderAll();
         alert("Bem-vindo à temporada " + currentYear + "!");
     }
+    
     function advanceDay() {
         if(currentDate.getMonth() === 11 && currentDate.getDate() === 31) { endOfSeason(); return; }
 
@@ -1349,7 +1449,19 @@
 
             currentDate.setDate(currentDate.getDate() + 1);
             if (currentDate.getMonth() !== prevMonth) {
-                let lucro = receitaMensalBase - despesaMensalBase; saldoCaixa += lucro; addNews(`Balanço do Mês Calculado.`);
+                
+                // --- NOVO SISTEMA DE ABATIMENTO MENSAL DE SALÁRIOS E CONTRATOS ---
+                let totalSalaries = 0;
+                if(ligas.serieA[0] && ligas.serieA[0].elenco) {
+                    ligas.serieA[0].elenco.forEach(p => {
+                        totalSalaries += p.salary; // Soma do salário mensal do jogador
+                        if(p.contract > 0) p.contract--; // Desconta 1 mês de contrato ativo
+                    });
+                }
+
+                let lucro = receitaMensalBase - despesaMensalBase - totalSalaries; 
+                saldoCaixa += lucro; 
+                addNews(`Balanço do Mês Calculado. Salários da folha debitados.`);
             }
             if(currentDate.getMonth() !== viewCalendarMonth) {
                 viewCalendarMonth = currentDate.getMonth(); viewCalendarYear = currentDate.getFullYear();
@@ -1361,7 +1473,6 @@
             else { btnMain.classList.remove('match-day'); lblStatus.innerText = "AVANÇAR"; lblStatus.style.color = "white"; }
         }
     }
-
     // --- FUNÇÕES DE ESTATÍSTICA INTELIGENTE DE PARTIDA ---
     function getPlayerWeightForGoal(p) {
         if(p.p === 'GOL') return 0; 
@@ -1410,12 +1521,13 @@
         }
         return starters[0];
     }
-    // --- FUNÇÕES DA NOVA CENTRAL DO ELENCO ---
+    
+    // --- FUNÇÕES DA NOVA CENTRAL DO ELENCO E RENOVAÇÃO ---
     function openCentralElenco() {
         managementReturnScreen = 'screen-elenco';
         currentCeTab = 'status';
         selectedCePlayerId = null;
-        ceSortCol = 'ovr'; // Reseta o sort pro GER quando abrir
+        ceSortCol = 'ovr'; 
         ceSortAsc = false;
         changeCeTab('status', document.getElementById('tab-ce-status'));
         openScreen('screen-central-elenco');
@@ -1431,19 +1543,16 @@
         document.querySelectorAll('.ce-tab').forEach(t => t.classList.remove('active'));
         if(el) el.classList.add('active');
         currentCeTab = tabId;
-        // Reseta o sort principal ao mudar de aba
         ceSortCol = 'ovr'; 
         ceSortAsc = false;
         renderCeTable();
     }
 
-    // NOVA FUNÇÃO DE ORDENAÇÃO DE COLUNAS
     function sortCeData(col) {
         if (ceSortCol === col) {
-            ceSortAsc = !ceSortAsc; // Inverte a ordem se clicar na mesma coluna
+            ceSortAsc = !ceSortAsc; 
         } else {
             ceSortCol = col;
-            // Textos organizam de A a Z por padrão. Números do maior pro menor.
             ceSortAsc = (col === 'n' || col === 'p' || col === 'role') ? true : false; 
         }
         renderCeTable();
@@ -1457,11 +1566,8 @@
         let tbody = document.getElementById('ce-table-body');
         thead.innerHTML = ""; tbody.innerHTML = "";
         
-        // LÓGICA DE ORDENAÇÃO DINÂMICA
         let sortedElenco = [...meuTime.elenco].sort((a, b) => {
             let valA, valB;
-            
-            // Define o que será comparado baseado na aba e coluna escolhida
             if(currentCeTab === 'status') {
                 if(ceSortCol === 'p') { valA = a.p; valB = b.p; }
                 else if(ceSortCol === 'n') { valA = a.n; valB = b.n; }
@@ -1490,7 +1596,7 @@
                 else if(ceSortCol === 'n') { valA = a.n; valB = b.n; }
                 else if(ceSortCol === 'ovr') { valA = a.ovr; valB = b.ovr; }
                 else if(ceSortCol === 'contract') { valA = a.contract; valB = b.contract; }
-                else if(ceSortCol === 'salary') { valA = a.salary; valB = b.salary; }
+                else if(ceSortCol === 'salary') { valA = a.weeklySalary; valB = b.weeklySalary; }
                 else if(ceSortCol === 'value') { valA = a.value; valB = b.value; }
                 else { valA = a.ovr; valB = b.ovr; }
             }
@@ -1502,7 +1608,6 @@
 
         if(selectedCePlayerId === null && sortedElenco.length > 0) selectedCePlayerId = sortedElenco[0].id;
         
-        // Gerador de cabeçalhos dinâmicos com setas e cliques
         const getTh = (colName, label) => {
             let icon = '';
             if (ceSortCol === colName) icon = ceSortAsc ? ' <span style="color:var(--cyan); font-size:0.8em;">▲</span>' : ' <span style="color:var(--cyan); font-size:0.8em;">▼</span>';
@@ -1531,11 +1636,11 @@
                 tbody.innerHTML += `<tr class="${hl}" onclick="selectCePlayer(${j.id})"><td class="ce-pos">${j.p}</td><td class="ce-name">${j.n.split(' ')[0]}</td><td class="ce-ger">${j.ovr}</td><td style="color:var(--bonus-green); font-weight:bold; text-align:center;">${j.pot}</td><td>${plano}</td><td class="ce-icon" style="color:var(--bonus-green)">+0</td></tr>`;
             });
         } else if (currentCeTab === 'financas') {
-            thead.innerHTML = `<tr>${getTh('p', 'Pos.')}${getTh('n', 'Nome')}${getTh('ovr', 'GER')}${getTh('contract', 'Contrato')}${getTh('salary', 'Salário')}${getTh('value', 'Valor')}</tr>`;
+            thead.innerHTML = `<tr>${getTh('p', 'Pos.')}${getTh('n', 'Nome')}${getTh('ovr', 'GER')}${getTh('contract', 'Contrato')}${getTh('salary', 'Salário Sem.')}${getTh('value', 'Valor')}</tr>`;
             sortedElenco.forEach(j => {
                 let hl = j.id === selectedCePlayerId ? 'selected' : '';
-                let cMeses = j.contract + "M";
-                tbody.innerHTML += `<tr class="${hl}" onclick="selectCePlayer(${j.id})"><td class="ce-pos">${j.p}</td><td class="ce-name">${j.n.split(' ')[0]}</td><td class="ce-ger">${j.ovr}</td><td>${cMeses}</td><td style="color:var(--money-red)">€ ${(j.salary/1000).toFixed(0)}k</td><td style="color:var(--money-green)">€ ${(j.value/1000000).toFixed(1)}M</td></tr>`;
+                let tempoRestante = formatContractDuration(j.contract);
+                tbody.innerHTML += `<tr class="${hl}" onclick="selectCePlayer(${j.id})"><td class="ce-pos">${j.p}</td><td class="ce-name">${j.n.split(' ')[0]}</td><td class="ce-ger">${j.ovr}</td><td>${tempoRestante}</td><td style="color:var(--money-red)">€ ${(j.weeklySalary/1000).toFixed(0)}k</td><td style="color:var(--money-green)">€ ${(j.value/1000000).toFixed(1)}M</td></tr>`;
             });
         }
         renderCeDetailPane();
@@ -1558,6 +1663,7 @@
         let eColor = (j.energy || 100) > 70 ? 'var(--money-green)' : ((j.energy || 100) > 40 ? 'var(--gold)' : 'var(--money-red)');
         let moralText = j.moral === 'Excelente' ? 'Muito Contente' : (j.moral === 'Boa' ? 'Contente' : (j.moral === 'Normal' ? 'Neutro' : 'Insatisfeito'));
         let formaText = j.form > 85 ? 'Excelente' : (j.form < 50 ? 'Ruim' : 'Regular');
+        let tempoRestante = formatContractDuration(j.contract);
         
         let html = `
             <div class="ce-detail-title">VISÃO GERAL E STATUS DO JOGADOR</div>
@@ -1574,7 +1680,7 @@
         if(currentCeTab === 'status') {
             html += `
             <div class="ce-d-grid">
-                <div class="ce-d-row"><span>Status</span><span>Faltam ${j.contract} meses</span></div>
+                <div class="ce-d-row"><span>Status</span><span>${tempoRestante} restantes</span></div>
                 <div class="ce-d-row"><span>Função</span><span>${j.role}</span></div>
                 <div class="ce-d-row"><span>Fase</span><span>${formaText}</span></div>
                 <div class="ce-d-row"><span>Disponibilidade</span><span style="color:var(--bonus-green)">Pode jogar</span></div>
@@ -1606,23 +1712,136 @@
             </div>
             <button class="ce-action-btn" onclick="alert('Sistema de treino e plano de desenvolvimento em breve!')">ALTERAR PLANO DE DESENVOLVIMENTO</button>`;
         } else if (currentCeTab === 'financas') {
+            let rescisaoFormatada = j.releaseClause === 0 ? "Sem Multa" : `€ ${(j.releaseClause).toLocaleString('pt-BR')}`;
             html += `
             <div class="ce-d-grid">
-                <div class="ce-d-row"><span>Salário Atual</span><span style="color:var(--money-red)">€ ${(j.salary).toLocaleString('pt-BR')}</span></div>
-                <div class="ce-d-row"><span>Valor de Mercado</span><span style="color:var(--money-green)">€ ${(j.value).toLocaleString('pt-BR')}</span></div>
-                <div class="ce-d-row"><span>Fim do Contrato</span><span>${j.contract} Meses</span></div>
-                <div class="ce-d-row"><span>Multa Rescisória</span><span style="color:var(--gold)">€ ${(j.value * 1.5).toLocaleString('pt-BR')}</span></div>
+                <div class="ce-d-row"><span>Salário Semanal</span><span style="color:var(--money-red)">€ ${(j.weeklySalary).toLocaleString('pt-BR')}</span></div>
+                <div class="ce-d-row"><span>Função no Elenco</span><span style="color:var(--cyan)">${j.role}</span></div>
+                <div class="ce-d-row"><span>Fim do Contrato</span><span>${tempoRestante}</span></div>
+                <div class="ce-d-row"><span>Multa Rescisória</span><span style="color:var(--gold)">${rescisaoFormatada}</span></div>
             </div>
-            <button class="ce-action-btn" onclick="alert('Renovação de contratos em desenvolvimento!')">NEGOCIAR CONTRATO</button>`;
+            <button class="ce-action-btn" onclick="openContractModal(${j.id})">NEGOCIAR CONTRATO</button>`;
         }
         pane.innerHTML = html;
+    }
+
+    // --- FUNÇÕES DE NEGOCIAÇÃO DE CONTRATO ---
+    function openContractModal(id) {
+        let p = todosJogadoresMap[id];
+        if(!p) return;
+        currentNegotiationPlayerId = id;
+        
+        document.getElementById('cm-name').innerText = p.n;
+        document.getElementById('cm-desc').innerText = `OVR: ${p.ovr} | Potencial: ${p.pot}`;
+        
+        document.getElementById('cm-role').value = p.role;
+        
+        // Default para adicionar 1 ano (12 meses)
+        document.getElementById('cm-duration').value = 12;
+        updateContractDurationDisplay(12);
+        
+        let salSlider = document.getElementById('cm-salary');
+        salSlider.value = p.weeklySalary;
+        updateContractSalaryDisplay(salSlider.value);
+        
+        let clauseSlider = document.getElementById('cm-clause');
+        clauseSlider.value = p.releaseClause;
+        updateContractClauseDisplay(clauseSlider.value);
+        
+        document.getElementById('cm-bonus').value = p.bonusLevel || 0;
+        
+        document.getElementById('contract-modal').style.display = 'flex';
+    }
+
+    function closeContractModal() {
+        document.getElementById('contract-modal').style.display = 'none';
+        currentNegotiationPlayerId = null;
+    }
+
+    function updateContractDurationDisplay(val) {
+        let p = todosJogadoresMap[currentNegotiationPlayerId];
+        document.getElementById('cm-duration-val').innerText = "+ " + formatContractDuration(parseInt(val));
+        
+        if(p) {
+            let totalEsperado = p.contract + parseInt(val);
+            if(totalEsperado > 108) totalEsperado = 108; // Limite de 9 anos
+            document.getElementById('cm-duration-total').innerText = "Novo Vínculo: " + formatContractDuration(totalEsperado);
+        }
+    }
+
+    function updateContractSalaryDisplay(val) {
+        let parsed = parseInt(val);
+        let formatted = parsed >= 1000 ? "€ " + (parsed/1000).toFixed(0) + "k" : "€ " + parsed;
+        document.getElementById('cm-salary-val').innerText = formatted;
+        
+        // Luvas = 1 Mês de Salário Adiantado (Salário semanal x 4)
+        let luvas = parsed * 4;
+        document.getElementById('cm-renewal-cost').innerText = "CUSTO DE RENOVAÇÃO (LUVAS): € " + luvas.toLocaleString('pt-BR');
+    }
+
+    function updateContractClauseDisplay(val) {
+        let parsed = parseInt(val);
+        let formatted = parsed >= 1000000 ? "€ " + (parsed/1000000).toFixed(1) + "M" : "€ " + (parsed/1000).toFixed(0) + "k";
+        if(parsed === 0) formatted = "Sem Multa";
+        document.getElementById('cm-clause-val').innerText = formatted;
+    }
+
+    function proposeContract() {
+        let p = todosJogadoresMap[currentNegotiationPlayerId];
+        if(!p) return;
+        
+        let propRole = document.getElementById('cm-role').value;
+        let propDur = parseInt(document.getElementById('cm-duration').value); // Tempo adicionado
+        let propSal = parseInt(document.getElementById('cm-salary').value);
+        let propClause = parseInt(document.getElementById('cm-clause').value);
+        let propBonus = parseInt(document.getElementById('cm-bonus').value);
+        
+        let luvas = propSal * 4;
+
+        if (saldoCaixa < luvas) {
+            alert("O clube não tem saldo em caixa suficiente para arcar com as Luvas de renovação (equivalente a 1 mês do novo salário).");
+            return;
+        }
+        
+        // Inteligência de recusa
+        let minAcceptableSalary = p.weeklySalary * 0.95; 
+        if(propRole === 'Crucial' && propSal < p.weeklySalary * 1.1) {
+            alert(`Atenção: Para ser Crucial no time, ${p.n} exige um aumento salarial significativo.`);
+            return;
+        }
+        if(propSal < minAcceptableSalary) {
+            alert("O jogador recusou a proposta! Ele e seu empresário consideraram o salário semanal oferecido muito baixo.");
+            return;
+        }
+        
+        // Paga as luvas
+        saldoCaixa -= luvas;
+        addNews(`Renovação de ${p.n.split(' ')[0]}: -€ ${(luvas/1000000).toFixed(2)}M (Luvas pagas)`);
+        
+        // Aplica os novos dados adicionando o tempo limite 9 anos
+        p.role = propRole;
+        p.contract += propDur; 
+        if(p.contract > 108) p.contract = 108; // Cap de 9 anos cravado
+        
+        p.weeklySalary = propSal;
+        p.salary = propSal * 4; // Ajusta o salário mensal interno
+        p.releaseClause = propClause;
+        p.bonusLevel = propBonus;
+        
+        // Boost de moral ao renovar
+        p.moral = "Excelente";
+        
+        alert(`Contrato renovado com sucesso!\n\n${p.n} assinou os papéis e estendeu seu vínculo por mais ${formatContractDuration(propDur)}. O novo contrato agora vai até ${formatContractDuration(p.contract)}.`);
+        closeContractModal();
+        renderCeTable();
+        renderAll(); // Atualiza o header com o dinheiro descontado
     }
 
     function openPlayerProfile(playerId) {
         let p = todosJogadoresMap[playerId]; if(!p) return;
         document.getElementById('p-name').innerText = p.n; document.getElementById('p-desc').innerText = `${p.p} | ${p.age} Anos | ${p.teamName}`; document.getElementById('p-ovr').innerText = p.ovr;
         document.getElementById('p-spd').innerText = p.spd; document.getElementById('p-pas').innerText = p.pas; document.getElementById('p-dri').innerText = p.dri; document.getElementById('p-def').innerText = p.def; document.getElementById('p-phy').innerText = p.phy;
-        document.getElementById('p-contract').innerText = p.contract + (p.contract > 1 ? " Anos" : " Ano"); document.getElementById('p-form').innerText = p.form + "%"; document.getElementById('p-pot').innerText = p.pot; document.getElementById('p-nat').innerText = p.nat;
+        document.getElementById('p-contract').innerText = formatContractDuration(p.contract); document.getElementById('p-form').innerText = p.form + "%"; document.getElementById('p-pot').innerText = p.pot; document.getElementById('p-nat').innerText = p.nat;
         document.getElementById('p-energy').innerText = (p.energy || 100) + "%";
         
         let moralEl = document.getElementById('p-morale'); moralEl.innerText = p.moral; moralEl.style.color = (p.moral === "Excelente" || p.moral === "Boa") ? "var(--money-green)" : (p.moral === "Baixa" ? "var(--money-red)" : "white");
@@ -2082,8 +2301,6 @@
     }
 
     function processResult(m, a, adv, matchData) {
-        
-        // CÁLCULO E INJEÇÃO DE ESTATÍSTICAS DOS JOGADORES NA CENTRAL
         let starters = ligas.serieA[0].elenco.filter(j => j.isStarter);
         let matchEvents = { goals: [], cards: [] };
 
@@ -2093,9 +2310,8 @@
             jog.stats.minutes += 90;
         });
 
-        // Simula cartões com peso por posição
-        let yellowCount = Math.floor(Math.random() * 4); // 0 a 3 amarelos
-        let redCount = Math.random() < 0.08 ? 1 : 0; // 8% chance de vermelho
+        let yellowCount = Math.floor(Math.random() * 4);
+        let redCount = Math.random() < 0.08 ? 1 : 0; 
         for(let i=0; i<yellowCount; i++) {
             if(starters.length > 0) {
                 let p = getRandomPlayerForCard(starters);
@@ -2109,7 +2325,6 @@
             matchEvents.cards.push(`🟥 Cartão Vermelho: ${p.n.split(' ')[0]}`);
         }
 
-        // Simula Gols e Assistências com peso por posição
         for(let i=0; i<m; i++) {
             if(starters.length > 0) {
                 let scorer = getRandomPlayerWeighted(starters, getPlayerWeightForGoal);
@@ -2366,6 +2581,14 @@
     }
 
     function renderAll() {
+        // Cálculo e exibição da folha salarial total do clube
+        let totalSalaries = 0;
+        if(ligas.serieA[0] && ligas.serieA[0].elenco) {
+            ligas.serieA[0].elenco.forEach(p => {
+                totalSalaries += p.salary || 0;
+            });
+        }
+
         let headerMoney = document.getElementById('ui-money-header'); if (headerMoney) headerMoney.innerText = "Caixa: " + formatDinheiro(saldoCaixa);
         document.getElementById('ui-data-atual').innerText = formatData(currentDate);
         
@@ -2373,8 +2596,14 @@
         let elRelSaldo = document.getElementById('fin-rel-saldo'); if(elRelSaldo) elRelSaldo.innerText = formatDinheiro(saldoCaixa);
         let elPremios = document.getElementById('fin-premios'); if(elPremios) elPremios.innerText = formatDinheiro(totalPremiosCopa);
         let elRelPremios = document.getElementById('fin-rel-premios'); if(elRelPremios) elRelPremios.innerText = formatDinheiro(totalPremiosCopa);
+        
         let elReceita = document.getElementById('fin-receita'); if(elReceita) elReceita.innerText = formatDinheiro(receitaMensalBase);
         let elDespesa = document.getElementById('fin-despesa'); if(elDespesa) elDespesa.innerText = "-" + formatDinheiro(despesaMensalBase);
+        
+        // Exibindo a folha salarial
+        let elSalarios = document.getElementById('fin-salarios'); if(elSalarios) elSalarios.innerText = "-" + formatDinheiro(totalSalaries);
+        let elRelSalarios = document.getElementById('fin-rel-salarios'); if(elRelSalarios) elRelSalarios.innerText = "-" + formatDinheiro(totalSalaries);
+        
         let elRelReceita = document.getElementById('fin-rel-receita'); if(elRelReceita) elRelReceita.innerText = formatDinheiro(receitaMensalBase);
         let elRelDespesa = document.getElementById('fin-rel-despesa'); if(elRelDespesa) elRelDespesa.innerText = "-" + formatDinheiro(despesaMensalBase);
 
